@@ -21,7 +21,8 @@ namespace Taller_Mecanico
 
         private void cmdGuardar_Click(object sender, EventArgs e)
         {
-            SqlCommand Altas = new SqlCommand("insert into CLIENTES (DNI_Cliente,Nombre_Cliente,Apellidos_Cliente,telefono,Direccion_Cliente) values(@DNI_Cliente,@Nombre_Cliente,@Apellidos_Cliente,@telefono,@Direccion_Cliente)", Conexion);
+            string INSERT = "INSERT INTO CLIENTES (DNI_Cliente,Nombre_Cliente,Apellidos_Cliente,telefono,Direccion_Cliente) values(@DNI_Cliente,@Nombre_Cliente,@Apellidos_Cliente,@telefono,@Direccion_Cliente)";
+            SqlCommand Altas = new SqlCommand(INSERT, Conexion);
             Altas.Parameters.AddWithValue("DNI_Cliente", txtDNI.Text);
             Altas.Parameters.AddWithValue("Nombre_Cliente", txtNombre.Text);
             Altas.Parameters.AddWithValue("Apellidos_Cliente", txtApellidos.Text);
@@ -30,7 +31,7 @@ namespace Taller_Mecanico
             Conexion.Open();
             Altas.ExecuteNonQuery();
             Conexion.Close();
-            MessageBox.Show("Socio Almacenados");
+            MessageBox.Show("Cliente Almacenado");
             txtDNI.Clear();
             txtNombre.Clear();
             txtApellidos.Clear();
@@ -41,17 +42,63 @@ namespace Taller_Mecanico
 
         private void cmdModificar_Click(object sender, EventArgs e)
         {
-
+            string UPDATE = "UPDATE CLIENTES SET DNI_Cliente = @DNI_Cliente, Nombre_Cliente = @Nombre_Cliente, Apellidos_Cliente = @Apellidos_Cliente, telefono = @telefono, Direccion_Cliente = @Direccion_Cliente WHERE DNI_Cliente = @DNI_Cliente";
+            Conexion.Open();
+            SqlCommand Modificacion = new SqlCommand(UPDATE, Conexion);
+            Modificacion.Parameters.AddWithValue("DNI_Cliente", txtDNI.Text);
+            Modificacion.Parameters.AddWithValue("Nombre_Cliente", txtNombre.Text);
+            Modificacion.Parameters.AddWithValue("Apellidos_Cliente", txtApellidos.Text);
+            Modificacion.Parameters.AddWithValue("telefono", txtTelefono.Text);
+            Modificacion.Parameters.AddWithValue("Direccion_Cliente", txtDireccion.Text);
+            Modificacion.ExecuteNonQuery();
+            Conexion.Close();
+            MessageBox.Show("Modificacion Realizada");
+            txtDNI.Clear();
+            txtNombre.Clear();
+            txtApellidos.Clear();
+            txtTelefono.Clear();
+            txtDireccion.Clear();
+            txtDNI.Focus();
         }
 
         private void cmdEliminar_Click(object sender, EventArgs e)
         {
-
+            string DELETE = "DELETE FROM CLIENTES WHERE DNI_Cliente = @DNI_Cliente";
+            Conexion.Open();
+            SqlCommand Elim = new SqlCommand(DELETE, Conexion);
+            Elim.Parameters.AddWithValue("DNI_Cliente", txtDNI.Text);
+            Elim.ExecuteNonQuery();
+            Elim.Dispose();
+            Elim = null;
+            txtDNI.Clear();
+            txtDNI.Focus();
+            Conexion.Close();
+            MessageBox.Show("Cliente Eliminado");
+            txtDNI.Clear();
+            txtNombre.Clear();
+            txtApellidos.Clear();
+            txtTelefono.Clear();
+            txtDireccion.Clear();
+            txtDNI.Focus();
         }
 
         private void cmdConsultar_Click(object sender, EventArgs e)
         {
-
+            string Cons = "SELECT * FROM CLIENTES WHERE DNI_Cliente = @DNI_Cliente";
+            Conexion.Open();
+            SqlCommand Consulta = new SqlCommand(Cons, Conexion);
+            Consulta.Parameters.AddWithValue("DNI_Cliente", txtDNI.Text);
+            SqlDataReader Lector = Consulta.ExecuteReader();
+            while (Lector.Read())
+            {
+                txtDNI.Text = Lector[0].ToString();
+                txtNombre.Text = Lector[1].ToString();
+                txtApellidos.Text = Lector[2].ToString();
+                txtTelefono.Text = Lector[3].ToString();
+                txtDireccion.Text = Lector[4].ToString();
+            }
+            Conexion.Close();
+            MessageBox.Show("Consulta Relaizada");
         }
         
         private void cmdSalir_Click(object sender, EventArgs e)
