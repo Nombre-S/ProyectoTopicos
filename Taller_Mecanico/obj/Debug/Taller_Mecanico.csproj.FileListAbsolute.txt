@@ -10,3 +10,4 @@ C:\Users\chiva\Documents\Topicos Avanzados de Programación\Unidad4\Taller_Mecan
 C:\Users\chiva\Documents\Topicos Avanzados de Programación\Unidad4\Taller_Mecanico\Taller_Mecanico\obj\Debug\Taller_Mecanico.pdb
 C:\Users\chiva\Documents\Topicos Avanzados de Programación\Unidad4\Taller_Mecanico\Taller_Mecanico\obj\Debug\Taller_Mecanico.frmMenu.resources
 C:\Users\chiva\Documents\Topicos Avanzados de Programación\Unidad4\Taller_Mecanico\Taller_Mecanico\obj\Debug\Taller_Mecanico.frmVehiculo.resources
+C:\Users\chiva\Documents\Topicos Avanzados de Programación\Unidad4\Taller_Mecanico\Taller_Mecanico\obj\Debug\Taller_Mecanico.Registro.resources

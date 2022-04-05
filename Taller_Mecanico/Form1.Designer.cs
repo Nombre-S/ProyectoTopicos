@@ -231,7 +231,7 @@ namespace Taller_Mecanico
             this.Controls.Add(this.lblDNI);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCliente";
-            this.Text = "Tabla Clientes";
+            this.Text = "Clientes";
             this.ResumeLayout(false);
             this.PerformLayout();
 
