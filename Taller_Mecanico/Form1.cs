@@ -98,7 +98,7 @@ namespace Taller_Mecanico
                 txtDireccion.Text = Lector[4].ToString();
             }
             Conexion.Close();
-            MessageBox.Show("Consulta Relaizada");
+            MessageBox.Show("Consulta Realizada");
         }
         
         private void cmdSalir_Click(object sender, EventArgs e)

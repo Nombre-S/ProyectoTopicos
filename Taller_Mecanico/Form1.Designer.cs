@@ -29,6 +29,7 @@ namespace Taller_Mecanico
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCliente));
             this.lblDNI = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblApellidos = new System.Windows.Forms.Label();
@@ -142,59 +143,77 @@ namespace Taller_Mecanico
             // 
             // cmdGuardar
             // 
-            this.cmdGuardar.Location = new System.Drawing.Point(529, 12);
+            this.cmdGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cmdGuardar.BackgroundImage = global::Taller_Mecanico.Properties.Resources.IconoGuardar;
+            this.cmdGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmdGuardar.Location = new System.Drawing.Point(408, 8);
             this.cmdGuardar.Name = "cmdGuardar";
-            this.cmdGuardar.Size = new System.Drawing.Size(95, 27);
+            this.cmdGuardar.Size = new System.Drawing.Size(50, 50);
             this.cmdGuardar.TabIndex = 10;
-            this.cmdGuardar.Text = "Guardar";
-            this.cmdGuardar.UseVisualStyleBackColor = true;
+            this.cmdGuardar.UseVisualStyleBackColor = false;
             this.cmdGuardar.Click += new System.EventHandler(this.cmdGuardar_Click);
             // 
             // cmdModificar
             // 
-            this.cmdModificar.Location = new System.Drawing.Point(529, 43);
+            this.cmdModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cmdModificar.BackgroundImage = global::Taller_Mecanico.Properties.Resources.IconoModificar;
+            this.cmdModificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmdModificar.Location = new System.Drawing.Point(464, 8);
             this.cmdModificar.Name = "cmdModificar";
-            this.cmdModificar.Size = new System.Drawing.Size(95, 27);
+            this.cmdModificar.Size = new System.Drawing.Size(50, 50);
             this.cmdModificar.TabIndex = 11;
-            this.cmdModificar.Text = "Modificar";
-            this.cmdModificar.UseVisualStyleBackColor = true;
+            this.cmdModificar.UseVisualStyleBackColor = false;
             this.cmdModificar.Click += new System.EventHandler(this.cmdModificar_Click);
             // 
             // cmdSalir
             // 
-            this.cmdSalir.Location = new System.Drawing.Point(529, 145);
+            this.cmdSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cmdSalir.BackgroundImage = global::Taller_Mecanico.Properties.Resources.IconoSalir;
+            this.cmdSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmdSalir.Location = new System.Drawing.Point(632, 8);
             this.cmdSalir.Name = "cmdSalir";
-            this.cmdSalir.Size = new System.Drawing.Size(95, 27);
+            this.cmdSalir.Size = new System.Drawing.Size(50, 50);
             this.cmdSalir.TabIndex = 14;
-            this.cmdSalir.Text = "Salir";
-            this.cmdSalir.UseVisualStyleBackColor = true;
+            this.cmdSalir.UseVisualStyleBackColor = false;
             this.cmdSalir.Click += new System.EventHandler(this.cmdSalir_Click);
             // 
             // cmdEliminar
             // 
-            this.cmdEliminar.Location = new System.Drawing.Point(529, 78);
+            this.cmdEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cmdEliminar.BackgroundImage = global::Taller_Mecanico.Properties.Resources.IconoEliminar;
+            this.cmdEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmdEliminar.Location = new System.Drawing.Point(520, 8);
             this.cmdEliminar.Name = "cmdEliminar";
-            this.cmdEliminar.Size = new System.Drawing.Size(95, 27);
+            this.cmdEliminar.Size = new System.Drawing.Size(50, 50);
             this.cmdEliminar.TabIndex = 12;
-            this.cmdEliminar.Text = "Eliminar";
-            this.cmdEliminar.UseVisualStyleBackColor = true;
+            this.cmdEliminar.UseVisualStyleBackColor = false;
             this.cmdEliminar.Click += new System.EventHandler(this.cmdEliminar_Click);
             // 
             // cmdConsultar
             // 
-            this.cmdConsultar.Location = new System.Drawing.Point(529, 111);
+            this.cmdConsultar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cmdConsultar.BackgroundImage = global::Taller_Mecanico.Properties.Resources.IconoConsulta;
+            this.cmdConsultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmdConsultar.Location = new System.Drawing.Point(576, 8);
             this.cmdConsultar.Name = "cmdConsultar";
-            this.cmdConsultar.Size = new System.Drawing.Size(95, 27);
+            this.cmdConsultar.Size = new System.Drawing.Size(50, 50);
             this.cmdConsultar.TabIndex = 13;
-            this.cmdConsultar.Text = "Consultar";
-            this.cmdConsultar.UseVisualStyleBackColor = true;
+            this.cmdConsultar.UseVisualStyleBackColor = false;
             this.cmdConsultar.Click += new System.EventHandler(this.cmdConsultar_Click);
             // 
             // frmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(708, 337);
+            this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(703, 337);
             this.Controls.Add(this.cmdEliminar);
             this.Controls.Add(this.cmdConsultar);
             this.Controls.Add(this.cmdSalir);
@@ -210,6 +229,7 @@ namespace Taller_Mecanico
             this.Controls.Add(this.lblApellidos);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblDNI);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCliente";
             this.Text = "Tabla Clientes";
             this.ResumeLayout(false);
