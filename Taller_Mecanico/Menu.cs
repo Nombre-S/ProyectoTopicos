@@ -20,8 +20,15 @@ namespace Taller_Mecanico
         private void cmdClientes_Click(object sender, EventArgs e)
         {
             frmCliente Cliente = new frmCliente();
-            Cliente.Show();
             this.Hide();
+            Cliente.Show();
+        }
+
+        private void cmdVehiculo_Click(object sender, EventArgs e)
+        {
+            frmVehiculo Vehiculo = new frmVehiculo();
+            this.Hide();
+            Vehiculo.Show();
         }
     }
 }

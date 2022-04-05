@@ -70,8 +70,6 @@ namespace Taller_Mecanico
             Elim.ExecuteNonQuery();
             Elim.Dispose();
             Elim = null;
-            txtDNI.Clear();
-            txtDNI.Focus();
             Conexion.Close();
             MessageBox.Show("Cliente Eliminado");
             txtDNI.Clear();

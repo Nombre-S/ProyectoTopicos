@@ -63,6 +63,7 @@ namespace Taller_Mecanico
             this.cmdVehiculo.TabIndex = 1;
             this.cmdVehiculo.Text = "Vehiculo";
             this.cmdVehiculo.UseVisualStyleBackColor = false;
+            this.cmdVehiculo.Click += new System.EventHandler(this.cmdVehiculo_Click);
             // 
             // cmdRegistro
             // 
