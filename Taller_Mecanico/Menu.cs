@@ -30,5 +30,31 @@ namespace Taller_Mecanico
             this.Hide();
             Vehiculo.Show();
         }
+
+        private void cmdRegistro_Click(object sender, EventArgs e)
+        {
+            frmRegistro Registro = new frmRegistro();
+            this.Hide();
+            Registro.Show();
+        }
+
+        private void cmdMecanico_Click(object sender, EventArgs e)
+        {
+            frmMecanico Mecanico = new frmMecanico();
+            this.Hide();
+            Mecanico.Show();
+        }
+
+        private void cmdFactura_Click(object sender, EventArgs e)
+        {
+            frmFactura Factura = new frmFactura();
+            this.Hide();
+            Factura.Show();
+        }
+
+        private void cmdSalida_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -11,9 +11,9 @@ using System.Data.SqlClient;
 
 namespace Taller_Mecanico
 {
-    public partial class frmRegistro : Form
+    public partial class frmMecanico : Form
     {
-        public frmRegistro()
+        public frmMecanico()
         {
             InitializeComponent();
         }
@@ -21,73 +21,67 @@ namespace Taller_Mecanico
 
         private void cmdGuardar_Click(object sender, EventArgs e)
         {
-            string INSERT = "INSERT INTO REGISTRO(ID_Registro, Matricula, Fecha_Entrada, Hora_Entrada) values(@ID_Registro, @Matricula, @Fecha_Entrada, @Hora_Entrada)";
+            string INSERT = "INSERT INTO MECANICO (ID_Mecanico, Nombre_Mecanico, ID_Registro) values(@ID_Mecanico, @Nombre_Mecanico, @ID_Registro)";
             SqlCommand Altas = new SqlCommand(INSERT, Conexion);
-            Altas.Parameters.AddWithValue("ID_Registro", txtID.Text);
-            Altas.Parameters.AddWithValue("Matricula", txtMat.Text);
-            Altas.Parameters.AddWithValue("Fecha_Entrada", txtFec.Text);
-            Altas.Parameters.AddWithValue("Hora_Entrada", txtHora.Text);
+            Altas.Parameters.AddWithValue("ID_Mecanico", txtID.Text);
+            Altas.Parameters.AddWithValue("Nombre_Mecanico", txtNom.Text);
+            Altas.Parameters.AddWithValue("ID_Registro", txtFK.Text);
             Conexion.Open();
             Altas.ExecuteNonQuery();
             Conexion.Close();
-            MessageBox.Show("Registro Almacenado");
+            MessageBox.Show("Mecanico Almacenado");
             txtID.Clear();
-            txtMat.Clear();
-            txtFec.Clear();
-            txtHora.Clear();
+            txtNom.Clear();
+            txtFK.Clear();
             txtID.Focus();
         }
 
         private void cmdModificar_Click(object sender, EventArgs e)
         {
-            string UPDATE = "UPDATE REGISTRO SET ID_Registro = @ID_Registro, Matricula = @Matricula, Fecha_Entrada = @Fecha_Entrada, Hora_Entrada = @Hora_Entrada WHERE ID_Registro = @ID_Registro";
+            string UPDATE = "UPDATE MECANICO SET ID_Mecanico = @ID_Mecanico, Nombre_Mecanico = @Nombre_Mecanico, ID_Registro = @ID_Registro  WHERE ID_Mecanico = @ID_Mecanico";
             Conexion.Open();
             SqlCommand Modificacion = new SqlCommand(UPDATE, Conexion);
-            Modificacion.Parameters.AddWithValue("ID_Registro", txtID.Text);
-            Modificacion.Parameters.AddWithValue("Matricula", txtMat.Text);
-            Modificacion.Parameters.AddWithValue("Fecha_Entrada", txtFec.Text);
-            Modificacion.Parameters.AddWithValue("Hora_Entrada", txtHora.Text);
+            Modificacion.Parameters.AddWithValue("ID_Mecanico", txtID.Text);
+            Modificacion.Parameters.AddWithValue("Nombre_Mecanico", txtNom.Text);
+            Modificacion.Parameters.AddWithValue("ID_Registro", txtFK.Text);
             Modificacion.ExecuteNonQuery();
             Conexion.Close();
             MessageBox.Show("Modificacion Realizada");
             txtID.Clear();
-            txtMat.Clear();
-            txtFec.Clear();
-            txtHora.Clear();
+            txtNom.Clear();
+            txtFK.Clear();
             txtID.Focus();
         }
 
         private void cmdEliminar_Click(object sender, EventArgs e)
         {
-            string DELETE = "DELETE FROM REGISTRO WHERE ID_Registro = @ID_Registro";
+            string DELETE = "DELETE FROM MECANICO WHERE ID_Mecanico = @ID_Mecanico";
             Conexion.Open();
             SqlCommand Elim = new SqlCommand(DELETE, Conexion);
-            Elim.Parameters.AddWithValue("ID_Registro", txtID.Text);
+            Elim.Parameters.AddWithValue("ID_Mecanico", txtID.Text);
             Elim.ExecuteNonQuery();
             Elim.Dispose();
             Elim = null;
             Conexion.Close();
-            MessageBox.Show("Registro Eliminado");
+            MessageBox.Show("Mecanico Eliminado");
             txtID.Clear();
-            txtMat.Clear();
-            txtFec.Clear();
-            txtHora.Clear();
+            txtNom.Clear();
+            txtFK.Clear();
             txtID.Focus();
         }
 
         private void cmdConsultar_Click(object sender, EventArgs e)
         {
-            string Cons = "SELECT * FROM REGISTRO WHERE ID_Registro = @ID_Registro";
+            string Cons = "SELECT * FROM MECANICO WHERE ID_Mecanico = @ID_Mecanico";
             Conexion.Open();
             SqlCommand Consulta = new SqlCommand(Cons, Conexion);
-            Consulta.Parameters.AddWithValue("DNI_Cliente", txtID.Text);
+            Consulta.Parameters.AddWithValue("ID_Mecanico", txtID.Text);
             SqlDataReader Lector = Consulta.ExecuteReader();
             while (Lector.Read())
             {
                 txtID.Text = Lector[0].ToString();
-                txtMat.Text = Lector[1].ToString();
-                txtFec.Text = Lector[2].ToString();
-                txtHora.Text = Lector[3].ToString();
+                txtNom.Text = Lector[1].ToString();
+                txtFK.Text = Lector[2].ToString();
             }
             Conexion.Close();
             MessageBox.Show("Consulta Realizada");

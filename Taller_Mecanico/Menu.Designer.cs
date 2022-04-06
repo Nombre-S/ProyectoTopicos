@@ -36,6 +36,7 @@ namespace Taller_Mecanico
             this.cmdMecanico = new System.Windows.Forms.Button();
             this.cmdFactura = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cmdSalida = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,6 +77,7 @@ namespace Taller_Mecanico
             this.cmdRegistro.TabIndex = 2;
             this.cmdRegistro.Text = "Registro";
             this.cmdRegistro.UseVisualStyleBackColor = false;
+            this.cmdRegistro.Click += new System.EventHandler(this.cmdRegistro_Click);
             // 
             // cmdMecanico
             // 
@@ -88,6 +90,7 @@ namespace Taller_Mecanico
             this.cmdMecanico.TabIndex = 3;
             this.cmdMecanico.Text = "Mecanico";
             this.cmdMecanico.UseVisualStyleBackColor = false;
+            this.cmdMecanico.Click += new System.EventHandler(this.cmdMecanico_Click);
             // 
             // cmdFactura
             // 
@@ -100,23 +103,38 @@ namespace Taller_Mecanico
             this.cmdFactura.TabIndex = 4;
             this.cmdFactura.Text = "Factura";
             this.cmdFactura.UseVisualStyleBackColor = false;
+            this.cmdFactura.Click += new System.EventHandler(this.cmdFactura_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::Taller_Mecanico.Properties.Resources.FondoPantalla;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 377);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 450);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(364, 188);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
+            // 
+            // cmdSalida
+            // 
+            this.cmdSalida.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.cmdSalida.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmdSalida.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSalida.Location = new System.Drawing.Point(12, 377);
+            this.cmdSalida.Name = "cmdSalida";
+            this.cmdSalida.Size = new System.Drawing.Size(363, 67);
+            this.cmdSalida.TabIndex = 6;
+            this.cmdSalida.Text = "Salir";
+            this.cmdSalida.UseVisualStyleBackColor = false;
+            this.cmdSalida.Click += new System.EventHandler(this.cmdSalida_Click);
             // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(388, 572);
+            this.ClientSize = new System.Drawing.Size(388, 647);
+            this.Controls.Add(this.cmdSalida);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cmdFactura);
             this.Controls.Add(this.cmdMecanico);
@@ -139,5 +157,6 @@ namespace Taller_Mecanico
         private System.Windows.Forms.Button cmdMecanico;
         private System.Windows.Forms.Button cmdFactura;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button cmdSalida;
     }
 }

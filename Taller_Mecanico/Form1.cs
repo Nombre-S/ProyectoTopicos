@@ -101,7 +101,9 @@ namespace Taller_Mecanico
         
         private void cmdSalir_Click(object sender, EventArgs e)
         {
-            Close();
+            frmMenu Menu = new frmMenu();
+            this.Close();
+            Menu.Show();
         }
     }
 }
