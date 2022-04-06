@@ -19,6 +19,15 @@ namespace Taller_Mecanico
         }
         SqlConnection Conexion = new SqlConnection("Data Source=(local);Initial Catalog=TallerMecanico;Integrated Security=SSPI");
 
+        public void LLenarTabla()
+        {
+            string consulta = "select * from CLIENTES";
+            SqlDataAdapter Adaptador = new SqlDataAdapter(consulta, Conexion);
+            DataTable dt = new DataTable();
+            Adaptador.Fill(dt);
+            dtgvClientes.DataSource = dt;
+        }
+
         private void cmdGuardar_Click(object sender, EventArgs e)
         {
             string INSERT = "INSERT INTO CLIENTES (DNI_Cliente,Nombre_Cliente,Apellidos_Cliente,telefono,Direccion_Cliente) values(@DNI_Cliente,@Nombre_Cliente,@Apellidos_Cliente,@telefono,@Direccion_Cliente)";
@@ -30,6 +39,7 @@ namespace Taller_Mecanico
             Altas.Parameters.AddWithValue("Direccion_Cliente", txtDireccion.Text);
             Conexion.Open();
             Altas.ExecuteNonQuery();
+            LLenarTabla();
             Conexion.Close();
             MessageBox.Show("Cliente Almacenado");
             txtDNI.Clear();
@@ -51,6 +61,7 @@ namespace Taller_Mecanico
             Modificacion.Parameters.AddWithValue("telefono", txtTelefono.Text);
             Modificacion.Parameters.AddWithValue("Direccion_Cliente", txtDireccion.Text);
             Modificacion.ExecuteNonQuery();
+            LLenarTabla();
             Conexion.Close();
             MessageBox.Show("Modificacion Realizada");
             txtDNI.Clear();
@@ -70,6 +81,7 @@ namespace Taller_Mecanico
             Elim.ExecuteNonQuery();
             Elim.Dispose();
             Elim = null;
+            LLenarTabla();
             Conexion.Close();
             MessageBox.Show("Cliente Eliminado");
             txtDNI.Clear();
@@ -86,6 +98,7 @@ namespace Taller_Mecanico
             Conexion.Open();
             SqlCommand Consulta = new SqlCommand(Cons, Conexion);
             Consulta.Parameters.AddWithValue("DNI_Cliente", txtDNI.Text);
+            LLenarTabla();
             SqlDataReader Lector = Consulta.ExecuteReader();
             while (Lector.Read())
             {
@@ -104,6 +117,15 @@ namespace Taller_Mecanico
             frmMenu Menu = new frmMenu();
             this.Close();
             Menu.Show();
+        }
+
+        private void frmCliente_Load(object sender, EventArgs e)
+        {
+            string consulta = "select * from CLIENTES";
+            SqlDataAdapter Adaptador = new SqlDataAdapter(consulta,Conexion);
+            DataTable dt = new DataTable();
+            Adaptador.Fill(dt);
+            dtgvClientes.DataSource = dt;
         }
     }
 }

@@ -29,6 +29,7 @@ namespace Taller_Mecanico
             Altas.Parameters.AddWithValue("Hora_Entrada", txtHora.Text);
             Conexion.Open();
             Altas.ExecuteNonQuery();
+            LlenarTabla();
             Conexion.Close();
             MessageBox.Show("Registro Almacenado");
             txtID.Clear();
@@ -48,6 +49,7 @@ namespace Taller_Mecanico
             Modificacion.Parameters.AddWithValue("Fecha_Entrada", txtFec.Text);
             Modificacion.Parameters.AddWithValue("Hora_Entrada", txtHora.Text);
             Modificacion.ExecuteNonQuery();
+            LlenarTabla();
             Conexion.Close();
             MessageBox.Show("Modificacion Realizada");
             txtID.Clear();
@@ -66,6 +68,7 @@ namespace Taller_Mecanico
             Elim.ExecuteNonQuery();
             Elim.Dispose();
             Elim = null;
+            LlenarTabla();
             Conexion.Close();
             MessageBox.Show("Registro Eliminado");
             txtID.Clear();
@@ -79,8 +82,9 @@ namespace Taller_Mecanico
         {
             string Cons = "SELECT * FROM REGISTRO WHERE ID_Registro = @ID_Registro";
             Conexion.Open();
+            LlenarTabla();
             SqlCommand Consulta = new SqlCommand(Cons, Conexion);
-            Consulta.Parameters.AddWithValue("DNI_Cliente", txtID.Text);
+            Consulta.Parameters.AddWithValue("ID_Registro", txtID.Text);
             SqlDataReader Lector = Consulta.ExecuteReader();
             while (Lector.Read())
             {
@@ -98,6 +102,24 @@ namespace Taller_Mecanico
             frmMenu Menu = new frmMenu();
             this.Close();
             Menu.Show();
+        }
+
+        private void frmRegistro_Load(object sender, EventArgs e)
+        {
+            string consulta = "select * from REGISTRO";
+            SqlDataAdapter Adaptador = new SqlDataAdapter(consulta, Conexion);
+            DataTable dt = new DataTable();
+            Adaptador.Fill(dt);
+            dtgvRegistro.DataSource = dt;
+        }
+
+        public void LlenarTabla()
+        {
+            string consulta = "select * from REGISTRO";
+            SqlDataAdapter Adaptador = new SqlDataAdapter(consulta, Conexion);
+            DataTable dt = new DataTable();
+            Adaptador.Fill(dt);
+            dtgvRegistro.DataSource = dt;
         }
     }
 }

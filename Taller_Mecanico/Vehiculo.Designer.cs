@@ -43,6 +43,8 @@ namespace Taller_Mecanico
             this.cmdSalir = new System.Windows.Forms.Button();
             this.cmdModificar = new System.Windows.Forms.Button();
             this.cmdGuardar = new System.Windows.Forms.Button();
+            this.dtgvVehiculo = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvVehiculo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMatricula
@@ -123,7 +125,7 @@ namespace Taller_Mecanico
             this.cmdEliminar.BackgroundImage = global::Taller_Mecanico.Properties.Resources.IconoEliminar;
             this.cmdEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.cmdEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdEliminar.Location = new System.Drawing.Point(592, 9);
+            this.cmdEliminar.Location = new System.Drawing.Point(480, 9);
             this.cmdEliminar.Name = "cmdEliminar";
             this.cmdEliminar.Size = new System.Drawing.Size(50, 50);
             this.cmdEliminar.TabIndex = 17;
@@ -136,7 +138,7 @@ namespace Taller_Mecanico
             this.cmdConsultar.BackgroundImage = global::Taller_Mecanico.Properties.Resources.IconoConsulta;
             this.cmdConsultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.cmdConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdConsultar.Location = new System.Drawing.Point(648, 9);
+            this.cmdConsultar.Location = new System.Drawing.Point(536, 9);
             this.cmdConsultar.Name = "cmdConsultar";
             this.cmdConsultar.Size = new System.Drawing.Size(50, 50);
             this.cmdConsultar.TabIndex = 18;
@@ -149,7 +151,7 @@ namespace Taller_Mecanico
             this.cmdSalir.BackgroundImage = global::Taller_Mecanico.Properties.Resources.IconoSalir;
             this.cmdSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.cmdSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdSalir.Location = new System.Drawing.Point(704, 9);
+            this.cmdSalir.Location = new System.Drawing.Point(592, 9);
             this.cmdSalir.Name = "cmdSalir";
             this.cmdSalir.Size = new System.Drawing.Size(50, 50);
             this.cmdSalir.TabIndex = 19;
@@ -162,7 +164,7 @@ namespace Taller_Mecanico
             this.cmdModificar.BackgroundImage = global::Taller_Mecanico.Properties.Resources.IconoModificar;
             this.cmdModificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.cmdModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdModificar.Location = new System.Drawing.Point(536, 9);
+            this.cmdModificar.Location = new System.Drawing.Point(424, 9);
             this.cmdModificar.Name = "cmdModificar";
             this.cmdModificar.Size = new System.Drawing.Size(50, 50);
             this.cmdModificar.TabIndex = 16;
@@ -175,12 +177,23 @@ namespace Taller_Mecanico
             this.cmdGuardar.BackgroundImage = global::Taller_Mecanico.Properties.Resources.IconoGuardar;
             this.cmdGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.cmdGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdGuardar.Location = new System.Drawing.Point(480, 9);
+            this.cmdGuardar.Location = new System.Drawing.Point(368, 9);
             this.cmdGuardar.Name = "cmdGuardar";
             this.cmdGuardar.Size = new System.Drawing.Size(50, 50);
             this.cmdGuardar.TabIndex = 15;
             this.cmdGuardar.UseVisualStyleBackColor = false;
             this.cmdGuardar.Click += new System.EventHandler(this.cmdGuardar_Click);
+            // 
+            // dtgvVehiculo
+            // 
+            this.dtgvVehiculo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvVehiculo.Location = new System.Drawing.Point(12, 288);
+            this.dtgvVehiculo.Name = "dtgvVehiculo";
+            this.dtgvVehiculo.ReadOnly = true;
+            this.dtgvVehiculo.RowHeadersWidth = 51;
+            this.dtgvVehiculo.RowTemplate.Height = 24;
+            this.dtgvVehiculo.Size = new System.Drawing.Size(630, 150);
+            this.dtgvVehiculo.TabIndex = 20;
             // 
             // frmVehiculo
             // 
@@ -189,7 +202,8 @@ namespace Taller_Mecanico
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::Taller_Mecanico.Properties.Resources.FondoPantalla;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(768, 450);
+            this.ClientSize = new System.Drawing.Size(651, 450);
+            this.Controls.Add(this.dtgvVehiculo);
             this.Controls.Add(this.cmdEliminar);
             this.Controls.Add(this.cmdConsultar);
             this.Controls.Add(this.cmdSalir);
@@ -206,6 +220,8 @@ namespace Taller_Mecanico
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmVehiculo";
             this.Text = "Vehiculo";
+            this.Load += new System.EventHandler(this.frmVehiculo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvVehiculo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,5 +242,6 @@ namespace Taller_Mecanico
         private System.Windows.Forms.Button cmdSalir;
         private System.Windows.Forms.Button cmdModificar;
         private System.Windows.Forms.Button cmdGuardar;
+        private System.Windows.Forms.DataGridView dtgvVehiculo;
     }
 }

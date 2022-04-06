@@ -40,6 +40,8 @@ namespace Taller_Mecanico
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.txtFK = new System.Windows.Forms.TextBox();
+            this.dtgvMecanico = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvMecanico)).BeginInit();
             this.SuspendLayout();
             // 
             // cmdEliminar
@@ -140,7 +142,7 @@ namespace Taller_Mecanico
             // txtID
             // 
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.Location = new System.Drawing.Point(169, 9);
+            this.txtID.Location = new System.Drawing.Point(186, 9);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(162, 27);
             this.txtID.TabIndex = 23;
@@ -148,7 +150,7 @@ namespace Taller_Mecanico
             // txtNom
             // 
             this.txtNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNom.Location = new System.Drawing.Point(169, 52);
+            this.txtNom.Location = new System.Drawing.Point(186, 52);
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(162, 27);
             this.txtNom.TabIndex = 24;
@@ -156,10 +158,21 @@ namespace Taller_Mecanico
             // txtFK
             // 
             this.txtFK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFK.Location = new System.Drawing.Point(169, 95);
+            this.txtFK.Location = new System.Drawing.Point(186, 95);
             this.txtFK.Name = "txtFK";
             this.txtFK.Size = new System.Drawing.Size(162, 27);
             this.txtFK.TabIndex = 25;
+            // 
+            // dtgvMecanico
+            // 
+            this.dtgvMecanico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvMecanico.Location = new System.Drawing.Point(146, 288);
+            this.dtgvMecanico.Name = "dtgvMecanico";
+            this.dtgvMecanico.ReadOnly = true;
+            this.dtgvMecanico.RowHeadersWidth = 51;
+            this.dtgvMecanico.RowTemplate.Height = 24;
+            this.dtgvMecanico.Size = new System.Drawing.Size(474, 150);
+            this.dtgvMecanico.TabIndex = 26;
             // 
             // frmMecanico
             // 
@@ -169,6 +182,7 @@ namespace Taller_Mecanico
             this.BackgroundImage = global::Taller_Mecanico.Properties.Resources.FondoPantalla;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(746, 450);
+            this.Controls.Add(this.dtgvMecanico);
             this.Controls.Add(this.txtFK);
             this.Controls.Add(this.txtNom);
             this.Controls.Add(this.txtID);
@@ -182,6 +196,8 @@ namespace Taller_Mecanico
             this.Controls.Add(this.cmdGuardar);
             this.Name = "frmMecanico";
             this.Text = "Mecanico";
+            this.Load += new System.EventHandler(this.frmMecanico_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvMecanico)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,5 +216,6 @@ namespace Taller_Mecanico
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.TextBox txtNom;
         private System.Windows.Forms.TextBox txtFK;
+        private System.Windows.Forms.DataGridView dtgvMecanico;
     }
 }

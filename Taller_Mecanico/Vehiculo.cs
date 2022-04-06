@@ -29,6 +29,7 @@ namespace Taller_Mecanico
             Altas.Parameters.AddWithValue("DNI_Cliente", txtDNI.Text);
             Conexion.Open();
             Altas.ExecuteNonQuery();
+            LLenarTabla();
             Conexion.Close();
             MessageBox.Show("Vehiculo Almacenado");
             txtMatricula.Clear();
@@ -48,6 +49,7 @@ namespace Taller_Mecanico
             Modificacion.Parameters.AddWithValue("DNI_Cliente", txtDNI.Text);
             Conexion.Open();
             Modificacion.ExecuteNonQuery();
+            LLenarTabla();
             Conexion.Close();
             MessageBox.Show("Modificacion Realizada");
             txtMatricula.Clear();
@@ -66,6 +68,7 @@ namespace Taller_Mecanico
             Elim.ExecuteNonQuery();
             Elim.Dispose();
             Elim = null;
+            LLenarTabla();
             Conexion.Close();
             MessageBox.Show("Vehiculo Eliminado");
             txtMatricula.Clear();
@@ -81,6 +84,7 @@ namespace Taller_Mecanico
             Conexion.Open();
             SqlCommand Consulta = new SqlCommand(Cons, Conexion);
             Consulta.Parameters.AddWithValue("Matricula", txtMatricula.Text);
+            LLenarTabla();
             SqlDataReader Lector = Consulta.ExecuteReader();
             while (Lector.Read())
             {
@@ -98,6 +102,24 @@ namespace Taller_Mecanico
             frmMenu Menu = new frmMenu();
             this.Close();
             Menu.Show();
+        }
+
+        private void frmVehiculo_Load(object sender, EventArgs e)
+        {
+            string consulta = "select * from VEHICULO";
+            SqlDataAdapter Adaptador = new SqlDataAdapter(consulta, Conexion);
+            DataTable dt = new DataTable();
+            Adaptador.Fill(dt);
+            dtgvVehiculo.DataSource = dt;
+        }
+
+        public void LLenarTabla()
+        {
+            string consulta = "select * from VEHICULO";
+            SqlDataAdapter Adaptador = new SqlDataAdapter(consulta, Conexion);
+            DataTable dt = new DataTable();
+            Adaptador.Fill(dt);
+            dtgvVehiculo.DataSource = dt;
         }
     }
 }

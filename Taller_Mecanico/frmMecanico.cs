@@ -28,6 +28,7 @@ namespace Taller_Mecanico
             Altas.Parameters.AddWithValue("ID_Registro", txtFK.Text);
             Conexion.Open();
             Altas.ExecuteNonQuery();
+            LlenarTabla();
             Conexion.Close();
             MessageBox.Show("Mecanico Almacenado");
             txtID.Clear();
@@ -45,6 +46,7 @@ namespace Taller_Mecanico
             Modificacion.Parameters.AddWithValue("Nombre_Mecanico", txtNom.Text);
             Modificacion.Parameters.AddWithValue("ID_Registro", txtFK.Text);
             Modificacion.ExecuteNonQuery();
+            LlenarTabla();
             Conexion.Close();
             MessageBox.Show("Modificacion Realizada");
             txtID.Clear();
@@ -62,6 +64,7 @@ namespace Taller_Mecanico
             Elim.ExecuteNonQuery();
             Elim.Dispose();
             Elim = null;
+            LlenarTabla();
             Conexion.Close();
             MessageBox.Show("Mecanico Eliminado");
             txtID.Clear();
@@ -76,6 +79,7 @@ namespace Taller_Mecanico
             Conexion.Open();
             SqlCommand Consulta = new SqlCommand(Cons, Conexion);
             Consulta.Parameters.AddWithValue("ID_Mecanico", txtID.Text);
+            LlenarTabla();
             SqlDataReader Lector = Consulta.ExecuteReader();
             while (Lector.Read())
             {
@@ -92,6 +96,24 @@ namespace Taller_Mecanico
             frmMenu Menu = new frmMenu();
             this.Close();
             Menu.Show();
+        }
+
+        private void frmMecanico_Load(object sender, EventArgs e)
+        {
+            string consulta = "select * from MECANICO";
+            SqlDataAdapter Adaptador = new SqlDataAdapter(consulta, Conexion);
+            DataTable dt = new DataTable();
+            Adaptador.Fill(dt);
+            dtgvMecanico.DataSource = dt;
+        }
+
+        public void LlenarTabla()
+        {
+            string consulta = "select * from MECANICO";
+            SqlDataAdapter Adaptador = new SqlDataAdapter(consulta, Conexion);
+            DataTable dt = new DataTable();
+            Adaptador.Fill(dt);
+            dtgvMecanico.DataSource = dt;
         }
     }
 }

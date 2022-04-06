@@ -34,6 +34,7 @@ namespace Taller_Mecanico
             Altas.Parameters.AddWithValue("ID_Mecanico", txtMecanico.Text);
             Conexion.Open();
             Altas.ExecuteNonQuery();
+            LlenarTabla();
             Conexion.Close();
             MessageBox.Show("Factura Almacenada");
             foreach (Control ctrl in this.Controls)
@@ -62,6 +63,7 @@ namespace Taller_Mecanico
             Modificacion.Parameters.AddWithValue("DNI_Cliente", txtCliente.Text);
             Modificacion.Parameters.AddWithValue("ID_Mecanico", txtMecanico.Text);
             Modificacion.ExecuteNonQuery();
+            LlenarTabla();
             Conexion.Close();
             MessageBox.Show("Modificacion Realizada");
             foreach (Control ctrl in this.Controls)
@@ -84,6 +86,7 @@ namespace Taller_Mecanico
             Elim.ExecuteNonQuery();
             Elim.Dispose();
             Elim = null;
+            LlenarTabla();
             Conexion.Close();
             MessageBox.Show("Factura Eliminada");
             foreach (Control ctrl in this.Controls)
@@ -103,6 +106,7 @@ namespace Taller_Mecanico
             Conexion.Open();
             SqlCommand Consulta = new SqlCommand(Cons, Conexion);
             Consulta.Parameters.AddWithValue("ID_Factura", txtID.Text);
+            LlenarTabla();
             SqlDataReader Lector = Consulta.ExecuteReader();
             while (Lector.Read())
             {
@@ -125,6 +129,24 @@ namespace Taller_Mecanico
             frmMenu Menu = new frmMenu();
             this.Close();
             Menu.Show();
+        }
+
+        private void frmFactura_Load(object sender, EventArgs e)
+        {
+            string consulta = "select * from FACTURA";
+            SqlDataAdapter Adaptador = new SqlDataAdapter(consulta, Conexion);
+            DataTable dt = new DataTable();
+            Adaptador.Fill(dt);
+            dtgvFactura.DataSource = dt;
+        }
+
+        public void LlenarTabla()
+        {
+            string consulta = "select * from FACTURA";
+            SqlDataAdapter Adaptador = new SqlDataAdapter(consulta, Conexion);
+            DataTable dt = new DataTable();
+            Adaptador.Fill(dt);
+            dtgvFactura.DataSource = dt;
         }
     }
 }

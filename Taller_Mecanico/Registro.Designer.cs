@@ -43,6 +43,8 @@ namespace Taller_Mecanico
             this.cmdSalir = new System.Windows.Forms.Button();
             this.cmdModificar = new System.Windows.Forms.Button();
             this.cmdGuardar = new System.Windows.Forms.Button();
+            this.dtgvRegistro = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvRegistro)).BeginInit();
             this.SuspendLayout();
             // 
             // lblID_Registro
@@ -182,6 +184,17 @@ namespace Taller_Mecanico
             this.cmdGuardar.UseVisualStyleBackColor = false;
             this.cmdGuardar.Click += new System.EventHandler(this.cmdGuardar_Click);
             // 
+            // dtgvRegistro
+            // 
+            this.dtgvRegistro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvRegistro.Location = new System.Drawing.Point(12, 288);
+            this.dtgvRegistro.Name = "dtgvRegistro";
+            this.dtgvRegistro.ReadOnly = true;
+            this.dtgvRegistro.RowHeadersWidth = 51;
+            this.dtgvRegistro.RowTemplate.Height = 24;
+            this.dtgvRegistro.Size = new System.Drawing.Size(678, 150);
+            this.dtgvRegistro.TabIndex = 20;
+            // 
             // frmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -190,6 +203,7 @@ namespace Taller_Mecanico
             this.BackgroundImage = global::Taller_Mecanico.Properties.Resources.FondoPantalla;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(702, 450);
+            this.Controls.Add(this.dtgvRegistro);
             this.Controls.Add(this.cmdEliminar);
             this.Controls.Add(this.cmdConsultar);
             this.Controls.Add(this.cmdSalir);
@@ -206,6 +220,8 @@ namespace Taller_Mecanico
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRegistro";
             this.Text = "Registro";
+            this.Load += new System.EventHandler(this.frmRegistro_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvRegistro)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,5 +242,6 @@ namespace Taller_Mecanico
         private System.Windows.Forms.Button cmdSalir;
         private System.Windows.Forms.Button cmdModificar;
         private System.Windows.Forms.Button cmdGuardar;
+        private System.Windows.Forms.DataGridView dtgvRegistro;
     }
 }
